@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Linq;
-using System.Net.Http;
 using System.Threading.Tasks;
-
 
 namespace AoC2021
 {
     public class Day1
     {
-        private async Task<int[]> GetValues()
+        private static async Task<int[]> GetValues()
         {
             var data = await SourceDataHelper.GetDataFromUrl("/2021/day/1/input").ConfigureAwait(false);
             var numbers = Array.ConvertAll(data, int.Parse);
@@ -16,19 +14,19 @@ namespace AoC2021
             return numbers;
         }
 
-        public async Task<int> GetIncreases()
+        public static async Task<int> GetIncreases()
         {
             var count = 0;
-                var numbers = await GetValues().ConfigureAwait(false);
-                for (var x = 1; x < numbers.Length; x++)
-                {
-                    count = numbers[x] > numbers[x - 1] ? count + 1 : count;
-                }
+            var numbers = await GetValues().ConfigureAwait(false);
+            for (var x = 1; x < numbers.Length; x++)
+            {
+                count = numbers[x] > numbers[x - 1] ? count + 1 : count;
+            }
 
-                return count;
+            return count;
         }
 
-        public async Task<int> GetSlidingWindowIncreases()
+        public static async Task<int> GetSlidingWindowIncreases()
         {
             var count = 0;
             var numbers = await GetValues().ConfigureAwait(false);
