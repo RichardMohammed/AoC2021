@@ -59,12 +59,11 @@ namespace AoC2021_Test
         }
 
         [Theory]
-        [InlineData(80, 386536)]
-     //   [InlineData(256, 386536)]
+        [InlineData(256, 1732821262171)]
         public async Task Day6Test_ReturnsCountOfFish_ForLarge_RealTestData(int days, long expectedCount)
         {
             var data = await Day6.GetValues().ConfigureAwait(false);
-            var count = Day6.CountLanternFish(data, days);
+            var count = Day6.PerformantCount(data, days);
 
             _testOutputHelper.WriteLine(count.ToString());
             Assert.Equal(expectedCount, count);
