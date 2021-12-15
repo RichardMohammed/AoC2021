@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace AoC2021
 {
-    public class Day5
+    public static class Day5
     {
         public static async Task<List<List<CoOrdinate>>> GetValues(string[] sourceData = null)
         {
@@ -157,10 +157,6 @@ namespace AoC2021
 
     public class CoOrdinate
     {
-        public CoOrdinate()
-        {
-
-        }
         public CoOrdinate(int row, int col)
         {
             Row = row;
