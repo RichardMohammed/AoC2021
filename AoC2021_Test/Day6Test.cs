@@ -17,14 +17,6 @@ namespace AoC2021_Test
         }
 
         [Fact]
-        public void Day6Test_ReturnsCountOfFish_ForExampleData()
-        {
-            var count = Day6.CountLanternFish(_data, 18);
-            Assert.Equal(26, count);
-            _testOutputHelper.WriteLine(count.ToString());
-        }
-
-        [Fact]
         public async Task GetTestData_ReturnsArrayOfInt()
         {
             var data = await Day6.GetValues().ConfigureAwait(false);
@@ -32,14 +24,50 @@ namespace AoC2021_Test
             Assert.IsType<List<int>>(data);
         }
 
-        [Fact]
-        public async Task Day6Test_ReturnsCountOfFish_ForRealTestData()
+        [Theory]
+        [InlineData(18, 26)]
+        [InlineData(80, 5934)]
+        public void Day6Test_ReturnsCountOfFish_ForExampleData(int days, int expected)
+        {
+            var count = Day6.CountLanternFish(_data, days);
+            Assert.Equal(expected, count);
+            _testOutputHelper.WriteLine(count.ToString());
+        }
+
+        [Theory]
+        [InlineData(4, 9)]
+        [InlineData(5, 10)]
+        [InlineData(6, 10)]
+        [InlineData(10, 12)]
+        [InlineData(256, 26984457539)]
+        public void Day6Test_ReturnsCountOfFish_ForLarge_ExampleData(int days, long expected)
+        {
+            var count = Day6.PerformantCount(_data, days);
+            Assert.Equal(expected, count);
+            _testOutputHelper.WriteLine(count.ToString());
+        }
+
+        [Theory]
+        [InlineData(80, 386536)]
+        public async Task Day6Test_ReturnsCountOfFish_ForRealTestData(int days, long expectedCount)
         {
             var data = await Day6.GetValues().ConfigureAwait(false);
-            var count = Day6.CountLanternFish(data, 80);
+            var count = Day6.CountLanternFish(data, days);
 
             _testOutputHelper.WriteLine(count.ToString());
-            Assert.Equal(386536, count);
+            Assert.Equal(expectedCount, count);
+        }
+
+        [Theory]
+        [InlineData(80, 386536)]
+     //   [InlineData(256, 386536)]
+        public async Task Day6Test_ReturnsCountOfFish_ForLarge_RealTestData(int days, long expectedCount)
+        {
+            var data = await Day6.GetValues().ConfigureAwait(false);
+            var count = Day6.CountLanternFish(data, days);
+
+            _testOutputHelper.WriteLine(count.ToString());
+            Assert.Equal(expectedCount, count);
         }
     }
 }
