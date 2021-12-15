@@ -9,7 +9,7 @@ namespace AoC2021
     {
         private async Task<List<Tuple<string, int>>> GetValues()
         {
-            var data = await SourceDataHelper.GetDataFromUrl("/2021/day/2/input").ConfigureAwait(false);
+            var data = await SourceDataHelper.GetDataFromUrl(2).ConfigureAwait(false);
             var directions = data.Select(x => new Tuple<string, int>(x.Split(' ')[0], Convert.ToInt32(x.Split(' ')[1]))).ToList();
 
             return directions;

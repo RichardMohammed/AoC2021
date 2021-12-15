@@ -10,7 +10,7 @@ namespace AoC2021
         const int BoardSize = 5;
         public static async Task<(int[], List<int[][]>)> GetValues()
         {
-            var data = await SourceDataHelper.GetDataFromUrl("/2021/day/4/input").ConfigureAwait(false);
+            var data = await SourceDataHelper.GetDataFromUrl(4).ConfigureAwait(false);
             var numbersToCall = Array.ConvertAll(data.First().Split(','), int.Parse);
             var numbersToPlay = data.Skip(1).Where(x => x != string.Empty).ToList();
 

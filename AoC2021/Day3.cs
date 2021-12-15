@@ -9,7 +9,7 @@ namespace AoC2021
     {
         private static async Task<List<char[]>> GetValues()
         {
-            var data = await SourceDataHelper.GetDataFromUrl("/2021/day/3/input").ConfigureAwait(false);
+            var data = await SourceDataHelper.GetDataFromUrl(3).ConfigureAwait(false);
             var diagnostics = data.Select(x => x.ToCharArray()).ToList();
 
             return diagnostics;

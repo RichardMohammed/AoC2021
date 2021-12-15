@@ -8,7 +8,7 @@ namespace AoC2021
     {
         private static async Task<int[]> GetValues()
         {
-            var data = await SourceDataHelper.GetDataFromUrl("/2021/day/1/input").ConfigureAwait(false);
+            var data = await SourceDataHelper.GetDataFromUrl(1).ConfigureAwait(false);
             var numbers = Array.ConvertAll(data, int.Parse);
 
             return numbers;

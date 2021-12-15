@@ -56,7 +56,7 @@ bld/
 credentials
 vendor/
 /AoC2021.sln.DotSettings.user
-/.idea/.idea.AoC2021/.idea/workspace.xml
+/.idea/
 /AoC2021/bin/Debug/netstandard2.0/AoC2021.dll
 /AoC2021/bin/Debug/netstandard2.0/AoC2021.pdb
 /AoC2021/obj/Debug/netstandard2.0/AoC2021.dll
