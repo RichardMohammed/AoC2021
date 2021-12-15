@@ -10,7 +10,7 @@ namespace AoC2021
         {
             var data = await SourceDataHelper.GetDataFromUrl(6).ConfigureAwait(false);
 
-            var values = data.Select(int.Parse).ToList();
+            var values = data.First().Split(',').Select(int.Parse).ToList();
 
             return values;
         }

@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using AoC2021;
 using Xunit;
@@ -23,6 +22,24 @@ namespace AoC2021_Test
             var count = Day6.CountLanternFish(_data, 18);
             Assert.Equal(26, count);
             _testOutputHelper.WriteLine(count.ToString());
+        }
+
+        [Fact]
+        public async Task GetTestData_ReturnsArrayOfInt()
+        {
+            var data = await Day6.GetValues().ConfigureAwait(false);
+
+            Assert.IsType<List<int>>(data);
+        }
+
+        [Fact]
+        public async Task Day6Test_ReturnsCountOfFish_ForRealTestData()
+        {
+            var data = await Day6.GetValues().ConfigureAwait(false);
+            var count = Day6.CountLanternFish(data, 80);
+
+            _testOutputHelper.WriteLine(count.ToString());
+            Assert.Equal(386536, count);
         }
     }
 }
